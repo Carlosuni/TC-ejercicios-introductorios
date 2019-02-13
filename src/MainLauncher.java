@@ -25,7 +25,7 @@ public class MainLauncher {
 		System.out.println("El máximo común divisor mediante el Algoritmo 1 (primos) es: " + maxComDiv1);
 					
 		System.out.println("-- ALGORITMO 2:");
-		BigInteger maxComDiv2 = Ejer1Algo2.calcMaxComDiv(numero1, numero2);
+		BigInteger maxComDiv2 = Ejer1Algo2.euclides(numero1, numero2);
 		System.out.println("El máximo común divisor mediante el Algoritmo 2 (Euclides) es: " + maxComDiv2);
 		
 		System.out.println("- EJERCICIO PRÁCTICO 2:");
