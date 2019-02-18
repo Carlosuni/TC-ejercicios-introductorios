@@ -29,6 +29,14 @@ public class MainLauncher {
 		System.out.println("El máximo común divisor mediante el Algoritmo 2 (Euclides) es: " + maxComDiv2);
 		
 		System.out.println("- EJERCICIO PRÁCTICO 2:");
+		boolean esPrimo = Ejer2.compruebaPrimo(numero1);
+		if (esPrimo) {
+			System.out.println("El número introducido (" + numero1.toString() + ") es primo");
+		}else {
+			System.out.println("El número introducido (" + numero1.toString() + ") no es primo");
+		}
+
+
 
 		
 		
