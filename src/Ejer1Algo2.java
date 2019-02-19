@@ -38,7 +38,11 @@ public class Ejer1Algo2 {
 			}
 		}
 		
-		return restoAnterior;
+		if (restoAnterior.equals(cero)) {
+			return new BigInteger("1");
+		}else {
+			return restoAnterior;
+		}
 	}
 	
 }
