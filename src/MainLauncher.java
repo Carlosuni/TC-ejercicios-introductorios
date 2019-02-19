@@ -18,6 +18,7 @@ public class MainLauncher {
 		System.out.println("- EJERCICIO PRÁCTICO 1:");
 		BigInteger numero1 = new BigInteger(args[0]);
 		BigInteger numero2 = new BigInteger(args[1]);
+		BigInteger bigInt0 = new BigInteger("0");
 		
 		System.out.println("Cálculo de común divisor entre " + numero1 + " y " + numero2);
 		System.out.println("-- ALGORITMO 1:");
@@ -29,17 +30,16 @@ public class MainLauncher {
 		System.out.println("El máximo común divisor mediante el Algoritmo 2 (Euclides) es: " + maxComDiv2);
 		
 		System.out.println("- EJERCICIO PRÁCTICO 2:");
-		boolean esPrimo = Ejer2.compruebaPrimo(numero1);
-		if (esPrimo) {
-			System.out.println("El número introducido (" + numero1.toString() + ") es primo");
-		}else {
-			System.out.println("El número introducido (" + numero1.toString() + ") no es primo");
+		if((numero1.compareTo(bigInt0) == 0)){	//Si el número introducido es 9 no tiene sentido el primo
+			System.out.println("El número introducido (" + numero1.toString() + ") es cero");
+		} else {
+			boolean esPrimo = Ejer2.compruebaPrimo(numero1);
+			if (esPrimo) {
+				System.out.println("El número introducido (" + numero1.toString() + ") es primo");
+			}else {
+				System.out.println("El número introducido (" + numero1.toString() + ") no es primo");
+			}
 		}
-
-
-
-		
-		
 	}
 
 }

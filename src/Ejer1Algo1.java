@@ -13,6 +13,12 @@ public class Ejer1Algo1 {
 //		System.out.println("Números primos posibles divisores del primer número (" + numero1 + "):");
 //		printBigIntVec(primos1);
 		
+		BigInteger bigInt0 = new BigInteger("0");
+		
+		if((numero1.compareTo(bigInt0) == 0) || (numero2.compareTo(bigInt0) == 0)){	//Si cualquiera de los números es 0, su mcd es 0
+			return bigInt0;
+		}
+		
 		Vector<DivisorAlgo1> factores1 = new Vector<DivisorAlgo1>(); 
 		factores1 = calcFactores(numero1);
 		System.out.println("Factores del primer número (" + numero1 + "):");
@@ -102,11 +108,11 @@ public class Ejer1Algo1 {
 	}
 
 	
-	private static void printBigIntVec (Vector<BigInteger> bigIntVec) {
-		for (int i = 0; i < bigIntVec.size(); ++i) {
-			System.out.println(bigIntVec.get(i).intValue());
-		}		
-	}
+//	private static void printBigIntVec (Vector<BigInteger> bigIntVec) {
+//		for (int i = 0; i < bigIntVec.size(); ++i) {
+//			System.out.println(bigIntVec.get(i).intValue());
+//		}		
+//	}
 	
 	private static void printDivAlgo1 (Vector<DivisorAlgo1> bigIntVec) {
 		for (int i = 0; i < bigIntVec.size(); ++i) {
