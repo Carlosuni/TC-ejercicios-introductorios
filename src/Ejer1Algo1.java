@@ -8,23 +8,23 @@ public class Ejer1Algo1 {
 	public static BigInteger calcMaxComDiv(BigInteger numero1, BigInteger numero2) {
 		BigInteger maxComDivisor = new BigInteger("1");
 		
-		Vector<BigInteger> primos1 = new Vector<BigInteger>();
-		primos1 = calcPrimos(numero1);			
-		System.out.println("Números primos posibles divisores del primer número (" + numero1 + "):");
-		printBigIntVec(primos1);
+//		Vector<BigInteger> primos1 = new Vector<BigInteger>();
+//		primos1 = calcPrimos(numero1);			
+//		System.out.println("Números primos posibles divisores del primer número (" + numero1 + "):");
+//		printBigIntVec(primos1);
 		
 		Vector<DivisorAlgo1> factores1 = new Vector<DivisorAlgo1>(); 
-		factores1 = calcFactores(numero1, primos1);
+		factores1 = calcFactores(numero1);
 		System.out.println("Factores del primer número (" + numero1 + "):");
 		printDivAlgo1(factores1);
 	
-		Vector<BigInteger> primos2 = new Vector<BigInteger>();
-		primos2 = calcPrimos(numero2);	
-		System.out.println("Números primos posibles divisores del segundo número (" + numero2 + "):");
-		printBigIntVec(primos2);
+//		Vector<BigInteger> primos2 = new Vector<BigInteger>();
+//		primos2 = calcPrimos(numero2);	
+//		System.out.println("Números primos posibles divisores del segundo número (" + numero2 + "):");
+//		printBigIntVec(primos2);
 	
 		Vector<DivisorAlgo1> factores2 = new Vector<DivisorAlgo1>(); 
-		factores2 = calcFactores(numero2, primos2);
+		factores2 = calcFactores(numero2);
 		System.out.println("Factores del segundo número (" + numero2 + "):");
 		printDivAlgo1(factores2);
 				
@@ -34,41 +34,45 @@ public class Ejer1Algo1 {
 	}
 
 
-	public static Vector<BigInteger> calcPrimos(BigInteger numero1) {
-		Vector<BigInteger> primos = new Vector<BigInteger>();
-		
-		for (int i = 2; i < (numero1.intValue() / 2); ++i ) {
-			if (primos.size() == 0) {
-				primos.add(BigInteger.valueOf(i));
-			} else {
-				boolean esPrimo = true;
-				
-				for (int j = 0; j < primos.size(); ++j) {
-					int resto = i % primos.get(j).intValue();				
-					if (resto  == 0) {
-						esPrimo = false;						
-					}
-				}
-				
-				if (esPrimo) primos.add(BigInteger.valueOf(i));
-			}		
-		}
+//	public static Vector<BigInteger> calcPrimos(BigInteger numero1) {
+//		Vector<BigInteger> primos = new Vector<BigInteger>();
+//		BigInteger bigInt1 = new BigInteger("1");
+//		
+//		for (BigInteger i = new BigInteger("2"); i.compareTo(numero1) == -1; i.add(bigInt1) ) {
+//			if (primos.size() == 0) {
+//				primos.add(i); //posible error
+//			} else {
+//				boolean esPrimo = true;
+//				
+//				for (BigInteger j = new BigInteger("0"); j.compareTo(BigInteger.valueOf(primos.size())) == - 1; j.add(bigInt1)) {
+//					int resto = i % primos.get(j).intValue();				
+//					if (resto  == 0) {
+//						esPrimo = false;						
+//					}
+//				}
+//				
+//				if (esPrimo) primos.add(BigInteger.valueOf(i));
+//			}		
+//		}
+//	
+//		return primos;
+//	}
 	
-		return primos;
-	}
 	
-	
-	private static Vector<DivisorAlgo1> calcFactores(BigInteger numero, Vector<BigInteger> primos) {
+	private static Vector<DivisorAlgo1> calcFactores(BigInteger numero) {
 		Vector<DivisorAlgo1> factores = new Vector<DivisorAlgo1>();
 		factores.add(new DivisorAlgo1());
 		BigInteger auxDiv = BigInteger.valueOf(numero.intValue());
+//		BigInteger auxPrimoAlto = new BigInteger("2");
+		BigInteger bigInt0 = new BigInteger("0");
+		BigInteger bigInt2 = new BigInteger("2");
 		
-		for (int i = 0; i < primos.size(); ++i) {
-			BigInteger primo = primos.get(i);
+		for (BigInteger i = new BigInteger("2"); i.compareTo(numero.divide(bigInt2)) == -1; i = i.nextProbablePrime()) {
+			BigInteger primo = i;
 			BigInteger resto = auxDiv.remainder(primo);		
 //			System.out.println("Probando factores con primo " + primo + " y número " + numero);
 
-			while (resto.equals(BigInteger.valueOf(0))) {
+			while (resto.compareTo(bigInt0) == 0) {
 				factores.add(new DivisorAlgo1(primo, false));
 				auxDiv = auxDiv.divide(primo);
 				resto = auxDiv.remainder(primo);
