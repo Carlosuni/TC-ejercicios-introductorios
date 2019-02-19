@@ -29,7 +29,7 @@ public class Ejer1Algo2 {
 		}													//// T(n) = conditionn_if + condition_else + content_else = 2 + 2 + 1 = 5
 		
 		
-		while(resto.compareTo(bigInt0) > 0){		
+		for(; resto.compareTo(bigInt0) > 0;){		
 			cociente = dividendo1.divide(divisor2);		// T(n) = 2
 			producto = divisor2.multiply(cociente);		// T(n) = 2
 			resto = dividendo1.subtract(producto);		// T(n) = 2	
@@ -40,9 +40,9 @@ public class Ejer1Algo2 {
 			}											// T(n) = condition + content = 1 + 1 = 2
 			
 			divisor2 = resto;							// T(n) = 1				
-		}													//// T(n) = condition + P(content + condition) = 1 + P(10 + 1)
-														// P = 
+		}													//// T(n) = 2 + n(2 + exp) = 2 + n(2 + 10) = 2 + 12n
+		
 		return divisor2;								// T(n) = 1
 	}
 	
-}																	//// T(n) = 4 + 1 + 1 + 3 + 1 + 5 + while + 1 = 16 + while
+}																	//// T(n) = 4 + 1 + 1 + 3 + 1 + 5 + 2 + 12n + 1 = 18 + 12n
